@@ -1,0 +1,7 @@
+.idea/
+.clangd/
+.clang-format
+compile_commands.json
+cmake-build-*/
+build/
+abi_guard_key.h
