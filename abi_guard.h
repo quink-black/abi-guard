@@ -44,18 +44,16 @@ extern "C" {
 #define static_abi_guard_glue2(prefix, guard, key) \
     prefix##guard##key
 
-#define static_abi_guard_func \
+#define static_abi_guard_check \
     static_abi_guard_glue(API_PREFIX, abi_guard_, STATIC_ABI_GUARD_KEY)
 
 STATIC_ABI_GUARD_API
-void static_abi_guard_func(const char **ptr);
-
-#define static_abi_guard_check(ptr) static_abi_guard_func(ptr)
+const char *static_abi_guard_check(void);
 
 #ifdef STATIC_ABI_GUARD_IMPL
 
-void static_abi_guard_func(const char **ptr) {
-    if (ptr) *ptr = __func__;
+const char *static_abi_guard_check() {
+    return __func__;
 }
 
 #endif// STATIC_ABI_GUARD_IMPL

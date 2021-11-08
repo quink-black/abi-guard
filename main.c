@@ -10,8 +10,6 @@
 
 int main()
 {
-    const char *ptr;
-    static_abi_guard_check(&ptr);
-    printf("%s\n", ptr);
+    printf("%s\n", static_abi_guard_check());
     return 0;
 }
