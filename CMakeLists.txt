@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(abi_guard C)
+project(abi_guard C CXX)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -25,4 +25,9 @@ target_include_directories(abi_guard_example
 add_executable(abi_guard_demo main.c)
 
 target_link_libraries(abi_guard_demo
+        abi_guard_example)
+
+add_executable(abi_guard_cpp_demo cpp.cc)
+
+target_link_libraries(abi_guard_cpp_demo
         abi_guard_example)
